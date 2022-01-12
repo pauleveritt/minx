@@ -9,6 +9,7 @@ python = "^3.9"
 watchgod = "^0.7"
 starlette = "^0.17.1"
 uvicorn = "^0.16.0"
+fastapi = "^0.71.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

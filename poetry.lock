@@ -27,6 +27,17 @@ python-versions = ">=3.6"
 tests = ["pytest", "pytest-asyncio", "mypy (>=0.800)"]
 
 [[package]]
+name = "asyncer"
+version = "0.0.1"
+description = "Asyncer, async and await, focused on developer experience."
+category = "main"
+optional = false
+python-versions = ">=3.6.2,<4.0.0"
+
+[package.dependencies]
+anyio = ">=3.4.0,<4.0.0"
+
+[[package]]
 name = "atomicwrites"
 version = "1.4.0"
 description = "Atomic file writes."
@@ -252,7 +263,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9"
-content-hash = "23f2f388f944a76ee5fc5584595aca18db929aedff8acd3607df567d0c331a2c"
+content-hash = "8e8cccc92d8e362a35862c7581f7f9bfe7d09f122be6a6f56e223887c83ea3a8"
 
 [metadata.files]
 anyio = [
@@ -262,6 +273,10 @@ anyio = [
 asgiref = [
     {file = "asgiref-3.4.1-py3-none-any.whl", hash = "sha256:ffc141aa908e6f175673e7b1b3b7af4fdb0ecb738fc5c8b88f69f055c2415214"},
     {file = "asgiref-3.4.1.tar.gz", hash = "sha256:4ef1ab46b484e3c706329cedeff284a5d40824200638503f5768edb6de7d58e9"},
+]
+asyncer = [
+    {file = "asyncer-0.0.1-py3-none-any.whl", hash = "sha256:ca96270cfb5cd3b9c3180bcbce00cacc05ba9d642ed9887f4f2ce87e225cdc2a"},
+    {file = "asyncer-0.0.1.tar.gz", hash = "sha256:a3f70685f20cd91e24a677981cacdbdd6d6b81f2404b7bfe957e9550fee264a1"},
 ]
 atomicwrites = [
     {file = "atomicwrites-1.4.0-py2.py3-none-any.whl", hash = "sha256:6d1784dea7c0c8d4a5172b6c620f40b6e4cbfdf96d783691f2e1302a7b88e197"},

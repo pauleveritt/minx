@@ -1,18 +1,19 @@
 import asyncio
-from time import time
 
+from anyio import to_thread
 from sphinx.application import Sphinx
 from sphinx.util.docutils import patch_docutils, docutils_namespace
 from starlette.applications import Starlette
 from starlette.responses import JSONResponse
 from starlette.routing import Route
-from watchgod import awatch
+from watchfiles import awatch, Change
 
 WATCH_DIR = "docs"
 
 
 async def homepage(request):
     return JSONResponse({'hello': 'world'})
+
 
 app = Starlette(debug=True, routes=[
     Route('/', homepage),
@@ -59,14 +60,14 @@ def build_docs():
     return sphinx_app.statuscode
 
 
+def my_filter(change: Change, filename: str) -> bool:
+    return filename.endswith('.rst') and "build" not in filename
+
+
 async def watch_changes():
     print(f"Watching changes in directory: {WATCH_DIR}")
-    async for changes in awatch(WATCH_DIR):
-        print(changes)
-        start = time()
-        build_docs()
-        elapsed = time() - start
-        print(elapsed * 1000)
+    async for changes in awatch(WATCH_DIR, watch_filter=my_filter):
+        await to_thread.run_sync(build_docs)
 
 
 @app.on_event("startup")
@@ -77,4 +78,3 @@ async def app_startup():
 @app.on_event("shutdown")
 async def shutdown_event():
     print("On shutdown")
-

@@ -1,13 +1,22 @@
 import asyncio
 from time import time
 
-from fastapi import FastAPI
 from sphinx.application import Sphinx
 from sphinx.util.docutils import patch_docutils, docutils_namespace
+from starlette.applications import Starlette
+from starlette.responses import JSONResponse
+from starlette.routing import Route
 from watchgod import awatch
 
 WATCH_DIR = "docs"
-app = FastAPI()
+
+
+async def homepage(request):
+    return JSONResponse({'hello': 'world'})
+
+app = Starlette(debug=True, routes=[
+    Route('/', homepage),
+])
 
 
 class MySphinx(Sphinx):
@@ -69,7 +78,3 @@ async def app_startup():
 async def shutdown_event():
     print("On shutdown")
 
-
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}

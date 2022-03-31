@@ -7,10 +7,8 @@ authors = ["Paul Everitt <pauleveritt@me.com>"]
 [tool.poetry.dependencies]
 python = "^3.9"
 watchgod = "^0.7"
-starlette = "^0.17.1"
+starlette = "^0.19.0"
 uvicorn = "^0.16.0"
-fastapi = "^0.71.0"
-asyncer = "^0.0.1"
 Sphinx = "^4.5.0"
 
 [tool.poetry.dev-dependencies]

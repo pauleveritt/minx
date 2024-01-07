@@ -6,7 +6,7 @@ from starlette.responses import JSONResponse
 from starlette.routing import Route
 from watchfiles import awatch, Change
 
-from minx.sphinx_builder import make_app
+from src.minx.sphinx_builder import make_app
 
 WATCH_DIR = "docs"
 

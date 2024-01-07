@@ -1,10 +1,15 @@
-# Schlockchain Homepage
+```{include} ../README.md
 
-Welcome to the future.
+```
 
 ```{toctree}
-:maxdepth: 2
-:caption: "Contents:"
-   
-
+---
+maxdepth: 1
+---
+examples/index
+reference
+contributing
+Code of Conduct <codeofconduct>
+License <license>
+Changelog <https://github.com/pauleveritt/minx/releases>
 ```

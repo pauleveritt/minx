@@ -1,9 +1,16 @@
-project = "Schlockchain"
-copyright = "2021, Paul Everitt <pauleveritt@me.com>"
-author = "Paul Everitt <pauleveritt@me.com>"
+"""Sphinx configuration."""
+from datetime import datetime
+
+
+project = "minx"
+author = "Paul Everitt"
+copyright = f"{datetime.now().year}, {author}"
 extensions = [
     "myst_parser",
+    "sphinx.ext.autodoc",
+    "sphinx.ext.napoleon",
 ]
-exclude_patterns = ["_build", "Thumbs.db", ".DS_Store", ".venv"]
-html_static_path = ["_static"]
-templates_path = ["_templates"]
+autodoc_typehints = "description"
+html_theme = "furo"
+myst_enable_extensions = ["colon_fence"]
+exclude_patterns = [".pytest_cache"]

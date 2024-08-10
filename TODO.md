@@ -2,7 +2,10 @@
 
 ## Now
 
+- Switch Sphinx to toml config
+
 ## Next
+
 
 - Tell Sphinx `app.build` which files changed
 

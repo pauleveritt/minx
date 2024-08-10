@@ -1,3 +1,4 @@
+"""Renderer for Sphinx changes."""
 from pathlib import Path
 
 from sphinx.testing.util import SphinxTestApp
@@ -10,12 +11,13 @@ class MinxApp(SphinxTestApp):
         self, force_all: bool = False, filenames: list[str] | None = None
     ) -> None:
         """Do a build then call clean up."""
-        # super().build(force_all=force_all, filenames=filenames)
-        super().build()
+        super().build(force_all=force_all, filenames=filenames)
+        # super().build()
         self.cleanup()
 
 
-def make_app(srcdir: Path) -> MinxApp:  # noqa: D103
+def make_app(srcdir: Path) -> MinxApp:
+    """Configure and create a Sphinx test app."""
     # Make a directory in var to build into
     builddir = srcdir.parent.parent.parent / "var" / srcdir.name
     builddir.mkdir(exist_ok=True)
